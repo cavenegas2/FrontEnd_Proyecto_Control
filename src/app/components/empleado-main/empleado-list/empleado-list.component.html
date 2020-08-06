@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class=" text-center">
+    <fa-icon class=" fa-5x" [icon]="faListAlt"></fa-icon>
+    <h3>Listado de Empleados</h3>
+    <hr>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>
+            Nombre completo
+          </th>
+          <th>
+            Area de trabajo
+          </th>
+          <th>
+            Cedula
+          </th>
+          <th>
+            Correo
+          </th>
+          <th>
+            Estado Civil
+          </th>
+
+          <th>
+            Sexo
+          </th>
+          <th>
+            Telefono
+          </th>
+          <th>
+            Lugar de nacimiento
+          </th>
+          <th>
+            <button [routerLink]="['/empleados/form']" class=" btn btn-info ">
+              <fa-icon [icon]="faPlus"></fa-icon> Agregar Empleado
+            </button>
+          </th>
+        </tr>
+      </thead>
+
+
+      <tr *ngFor="let e of empleados">
+        <td>
+          {{e.nombre_completo}}
+        </td>
+        <td>
+          {{e.area_trabajo}}
+        </td>
+        <td>
+          {{e.cedula}}
+        </td>
+        <td>
+          {{e.correo}}
+        </td>
+        <td>
+          {{e.estado_civil}}
+        </td>
+
+        <td>
+          {{e.sexo}}
+        </td>
+        <td>
+          {{e.telefono}}
+        </td>
+        <td>
+          {{e.lugar_nacimiento}}
+        </td>
+        <td>
+          <div class="btn-group-vertical">
+            <button [routerLink]="['/empleados/card', e.id_emp]" class=" btn  btn-info btn-sm">
+              <fa-icon [icon]="faEye"></fa-icon>
+            </button>
+            <button [routerLink]="['/empleados/form', e.id_emp]" class=" btn  btn-warning btn-sm">
+              <fa-icon [icon]="faPencilAlt"></fa-icon>
+            </button>
+            <button (click)="delete(e)" class=" btn  btn-danger btn-sm">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+
+
+    </table>
+  </div>
+</div>

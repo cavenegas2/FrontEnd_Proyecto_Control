@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="text-center">
+    <fa-icon class="fa-5x" [icon]="faUserPlus"></fa-icon> <h3>{{title}}</h3>
+  </div>
+  <hr>
+  
+</div>
+<div class="text-center">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
+  <!--Nombre completo-->
+  <div class="input-group mb-3">
+
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faUserTie'></fa-icon>
+      </span>
+    </div>
+    
+      <input formControlName="nombre_completo" type="text" class="form-control form-control-user"
+        [(ngModel)]="empleado.nombre_completo" placeholder="Nombre completo... " />
+    
+  </div>
+  <!--Area de trabajo-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faBriefcase'></fa-icon>
+      </span>
+    </div>
+    
+      <select formControlName="area_trabajo" [(ngModel)]="empleado.area_trabajo" class="form-control form-control-user">
+        <option value="Contratacion y empleado">Contratacion y empleado</option>
+        <option value="Capacitacion y desarrollo">Capacitacion y desarrollo</option>
+        <option value="Sueldos y Salarios">Sueldos y Salarios</option>
+        <option value="Relaciones laborales">Relaciones laborales</option>
+        <option value="Servicios y prestaciones">Servicios y prestaciones</option>
+        <option value="Higiene y seguridad industrial">Higiene y seguridad industrial</option>
+        <option value="Planeacion de recursos Humanos">Planeacion de recursos Humanos</option>
+      </select>
+  </div>
+
+  <!--Cedula-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faIdCard'></fa-icon>
+      </span>
+    </div>
+      <input formControlName="cedula" type="text" class="form-control form-control-user" [(ngModel)]="empleado.cedula"
+        placeholder="Cedula de identidad..." />
+  </div>
+
+  <!--Correo-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faEnvelope'></fa-icon>
+      </span>
+    </div>
+      <input formControlName="correo" type="text" class="form-control form-control-user" [(ngModel)]="empleado.correo"
+        placeholder="Correo electronico..." />
+  </div>
+
+  <!--Estado civil-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faRing'></fa-icon>
+      </span>
+    </div>
+      <select formControlName="estado_civil" [(ngModel)]="empleado.estado_civil" class="form-control form-control-user">
+        <option value="Solter@">Soltero@</option>
+        <option value="Casad@">Casad@</option>
+      </select>
+  </div>
+
+  <!--Sexo-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faRestroom'></fa-icon>
+      </span>
+    </div>
+      <select formControlName="sexo" [(ngModel)]="empleado.sexo" class="form-control form-control-user">
+        <option value="F">Mujer</option>
+        <option value="M">Hombre</option>
+        <option value="G">LGBTI</option>
+      </select>
+  </div>
+
+  <!--Telefono-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faPhoneSquare'></fa-icon>
+      </span>
+    </div>
+      <input formControlName="telefono" type="text" class="form-control form-control-user"
+        [(ngModel)]="empleado.telefono" placeholder="Telefono..." />
+  </div>
+
+  <!--Lugar de nacimiento-->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <fa-icon [icon]='faMapPin'></fa-icon>
+      </span>
+    </div>
+      <input formControlName="lugar_nacimiento" type="text" class="form-control form-control-user"
+        [(ngModel)]="empleado.lugar_nacimiento" placeholder="Lugar de nacimiento..." />
+    </div>
+
+  <div class="btn-group">
+    <button type="submit" class="btn btn-success">
+      <fa-icon [icon]='faSave'></fa-icon>&nbsp;Guardar
+    </button>
+    <button [routerLink]="['/empleados/list']" class=" btn btn-info">
+         Volver
+      </button>
+  </div>
+</form>
+</div>
