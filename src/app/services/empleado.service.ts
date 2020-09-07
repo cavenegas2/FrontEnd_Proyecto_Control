@@ -11,7 +11,8 @@ import { Empleado } from '../models/empleado';
 export class EmpleadoService {
  
   
-  url : string ="https://localhost:44367/api/Empleado";
+  url : string ="http://cavenegas2-001-site1.itempurl.com/api/Empleado";
+  //url : string = "https://localhost:44367/api/Empleado";
   httpOptions={
     headers: new HttpHeaders({
       'Content-Type' : 'application/json',

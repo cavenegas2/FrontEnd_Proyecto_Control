@@ -8,17 +8,17 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
-          <h2 class="active"> Sign In </h2>
-          <h2 class="inactive underlineHover">Sign Up </h2>
+          <h2 class="active"> Ingreso </h2>
           <br>
           <!-- Icon -->
           <fa-icon class="fa-2x" [icon]="faUserPlus"></fa-icon>
       
           <!-- Login Form -->
           <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="text" #usuario name="login" placeholder="Usuario">
+            <input type="password" #contrasena name="login" placeholder="Contraseña">
+            <br>
+            <button (click)="login(usuario.value, contrasena.value)" >Ingresar</button> 
           </form>
       
           <!-- Remind Passowrd -->

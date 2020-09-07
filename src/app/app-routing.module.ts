@@ -4,15 +4,16 @@ import { EmpleadoMainComponent } from './components/empleado-main/empleado-main.
 import { EmpleadoCardComponent } from './components/empleado-card/empleado-card.component';
 import { EmpleadoListComponent } from './components/empleado-main/empleado-list/empleado-list.component';
 import { EmpleadoFormComponent } from './components/empleado-main/empleado-form/empleado-form.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: 'empleados', component:EmpleadoMainComponent},
-  {path: 'empleados/form', component:EmpleadoFormComponent}, //create
-  {path: 'empleados/form/:id', component:EmpleadoFormComponent}, //update
-  {path: 'empleados/list', component:EmpleadoListComponent}, //list
-  {path: 'empleados/card/:id', component:EmpleadoCardComponent} //retrieve
+  {path: 'empleados/form', component:EmpleadoFormComponent, canActivate : [AuthGuard], data:{permittedRoles:["Administrador"]}}, //create
+  {path: 'empleados/form/:id', component:EmpleadoFormComponent, canActivate : [AuthGuard], data:{permittedRoles:["Administrador"]} }, //update
+  {path: 'empleados/list', component:EmpleadoListComponent, canActivate : [AuthGuard], data:{permittedRoles:["Administrador"]}}, //list
+  {path: 'empleados/card/:id', component:EmpleadoCardComponent,canActivate : [AuthGuard], data:{permittedRoles:["Administrador"]}} //retrieve
 ];
 
 @NgModule({
